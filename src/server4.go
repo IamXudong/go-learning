@@ -20,22 +20,15 @@ const (
 	whiteIndex = 1
 )
 
-var cycles int
-var res float64
-var size int
-var nframes int
-var delay int
-var freq float64
+var cycles int = 5
+var res float64 = 0.001
+var size int = 100
+var nframes int = 64
+var delay int = 8
+var freq float64 = rand.Float64() * 3.0
 
 func main() {
 	handle := func(w http.ResponseWriter, r *http.Request) {
-		cycles = 5
-		res = 0.001
-		size = 100
-		nframes = 64
-		delay = 8
-		freq = rand.Float64() * 3.0
-
 		if err := r.ParseForm(); err != nil {
 			log.Print(err)
 		}
