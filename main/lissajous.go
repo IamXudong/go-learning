@@ -29,7 +29,7 @@ func main() {
 		}
 
 		http.HandleFunc("/", handler)
-        log.Fatal(http.ListenAndServe("localhost:3005", nil))
+		log.Fatal(http.ListenAndServe("localhost:3005", nil))
 		return
 	}
 	lissajous(os.Stdout)
