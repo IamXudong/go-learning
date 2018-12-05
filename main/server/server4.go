@@ -13,16 +13,16 @@ import (
 	"strconv"
 )
 
-var palette = []color.Color{color.Black, color.White}
+var palette = []color.Color{color.Black, color.RGBA{0x00, 0xFF, 0x00, 0xff}}
 
 const (
 	blackIndex = 0
-	whiteIndex = 1
+	greenIndex = 1
 )
 
 var cycles int = 5
-var res float64 = 0.001
-var size int = 100
+var res float64 = 0.0001
+var size int = 200
 var nframes int = 64
 var delay int = 8
 var freq float64 = rand.Float64() * 3.0
@@ -104,7 +104,7 @@ func lissajous(out io.Writer) {
 		for t := 0.0; t < float64(cycles*2)*math.Pi; t += res {
 			x := math.Sin(t)
 			y := math.Sin(t*freq + phase)
-			img.SetColorIndex(size+int(x*float64(size-50)+0.5), size+int(y*float64(size-50)+0.5), whiteIndex)
+			img.SetColorIndex(size+int(x*float64(size-50)+0.5), size+int(y*float64(size-50)+0.5), greenIndex)
 		}
 
 		anim.Delay = append(anim.Delay, delay)
