@@ -44,7 +44,7 @@ func lissajous(out io.Writer) {
 		delay   = 8
 	)
 
-	freq := rand.Float64() * 3.0
+	freq := 2.97
 	anim := gif.GIF{LoopCount: nframes}
 	phase := 0.0
 
