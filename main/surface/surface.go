@@ -18,7 +18,7 @@ const (
 var cos30, sin30 = math.Cos(angle), math.Sin(angle)
 
 func main() {
-		fmt.Printf("<svg xmlns='http://www.w3.org/2000/svg' style='stroke: grey; fill: white; stroke-width: 0.5' width='%d' height='%d'>", width, height)
+	fmt.Printf("<svg xmlns='http://www.w3.org/2000/svg' style='stroke: grey; fill: white; stroke-width: 0.5' width='%d' height='%d'>", width, height)
 	for i := 0; i < cells; i++ {
 		for j := 0; j < cells; j++ {
 			ax, ay := corner(i+1, j)
@@ -52,7 +52,7 @@ func corner(i, j int) (float64, float64) {
 func f(x, y float64) (float64, bool) {
 	r := math.Hypot(x, y) // 到(0, 0)的距离
 	if r == 0 {
-		return 0, false;
+		return 0, false
 	}
 	return math.Sin(r) / r, true
 }
