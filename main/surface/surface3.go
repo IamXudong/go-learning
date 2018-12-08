@@ -10,7 +10,7 @@ const (
 	cells         = 120
 	xyrange       = 40
 	xyscale       = width / 2 / xyrange
-	zscale        = height * 0.05
+	zscale        = height * 0.03
 	angle         = math.Pi / 6
 )
 
@@ -41,20 +41,6 @@ func corner(i, j int) (float64, float64) {
 }
 
 func f(x, y float64) float64 {
-	m := int(x / (math.Pi * 2))
-	n := int(y / (math.Pi * 2))
-
-	dm := math.Abs(x - float64(m)*math.Pi*2)
-	dn := math.Abs(y - float64(n)*math.Pi*2)
-
-	if dm > math.Pi {
-		dm = 2*math.Pi - dm
-	}
-
-	if dn > math.Pi {
-		dn = 2*math.Pi - dn
-	}
-
-	r := math.Hypot(dm, dn)
-	return math.Cos(r)
+	z := math.Pow(2, math.Sin(x)) * math.Pow(2, math.Sin(y))
+	return z
 }
