@@ -8,7 +8,7 @@ import (
 
 const (
 	width, height = 600, 320            // 以像素表示的画布大小
-	cells         = 160              // 网格单元的个数
+	cells         = 160                 // 网格单元的个数
 	xyrange       = 30.0                // 坐标轴的范围
 	xyscale       = width / 2 / xyrange // x或y轴上每个单位长度的像素
 	zscale        = height * 0.4        // z轴上每个单位长度的像素
@@ -18,7 +18,7 @@ const (
 var cos30, sin30 = math.Cos(angle), math.Sin(angle)
 
 func main() {
-		fmt.Printf("<svg xmlns='http://www.w3.org/2000/svg' style='stroke: cyan; fill: white; stroke-width: 0.1' width='%d' height='%d'>", width, height)
+	fmt.Printf("<svg xmlns='http://www.w3.org/2000/svg' style='stroke: cyan; fill: white; stroke-width: 0.1' width='%d' height='%d'>", width, height)
 	for i := 0; i < cells; i++ {
 		for j := 0; j < cells; j++ {
 			ax, ay, az := corner(i+1, j)
