@@ -11,7 +11,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", handle)
-	log.Fatal(http.ListenAndServe("localhost:" + os.Args[1], nil))
+	log.Fatal(http.ListenAndServe("localhost:"+os.Args[1], nil))
 }
 
 func handle(w http.ResponseWriter, r *http.Request) {
@@ -31,7 +31,7 @@ const (
 var sin30, cos30 = math.Sin(angle), math.Cos(angle)
 
 func surface(w io.Writer) {
-	fmt.Fprintf(w, "<svg xmlns='http://www.w3.org/2000/svg' style='stroke: #eee; fill: white; stroke-width: 0.5' width='%d' height='%d'>\n", width, height)
+	fmt.Fprintf(w, "<svg xmlns='http://www.w3.org/2000/svg' style='stroke: #eee; fill: white; stroke-width: 0.1' width='%d' height='%d'>\n", width, height)
 	for i := 0; i < cells; i++ {
 		for j := 0; j < cells; j++ {
 			// 计算单元多边形顶点二维投射坐标
@@ -77,11 +77,14 @@ func f(x, y float64) float64 {
 	return math.Sin(r) / r
 }
 
-func c(z float64) int {
-	z += 0.22
-	r := int(z * (0xff / 1.22))
-	g := int((1.22 - z) * (0x60 / 1.22))
-	b := int((1.22 - z) * (0xff / 1.22))
+func c(z float64) uint32 {
+	const cunit = 0xff / 1.22 // 单位色值
+	z += 0.22                 // 高度转换为正值
 
-	return r*0x10000 + g*0x100 + b
+	// 计算色值
+	r := uint8(z * cunit)
+	g := uint8(0)
+	b := uint8((1.22 - z) * cunit)
+
+	return uint32(r)<<16 + uint32(g)<<8 + uint32(b)
 }
