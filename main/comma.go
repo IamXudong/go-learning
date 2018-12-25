@@ -34,7 +34,7 @@ func commaB(s string) string {
 		if n > 0 {
 			buf.WriteByte(',')
 		}
-		buf.WriteString(s[n:n+3])
+		buf.WriteString(s[n : n+3])
 		n += 3
 	}
 	return buf.String()
@@ -52,12 +52,12 @@ func commaC(s string) string {
 
 	// 更新整数部分结束位置
 	dot := strings.Index(s, ".")
-	if dot > 0  {
+	if dot > 0 {
 		end = dot
 	}
 
 	buf.WriteString(s[:begin]) // 写入符号部分
-	intSec := s[begin: end] // 对整数部分创建索引
+	intSec := s[begin:end]     // 对整数部分创建索引
 
 	// 写入整数部分
 	n := len(intSec) % 3
@@ -66,7 +66,7 @@ func commaC(s string) string {
 		if n > 0 {
 			buf.WriteByte(',')
 		}
-		buf.WriteString(intSec[n:n+3])
+		buf.WriteString(intSec[n : n+3])
 		n += 3
 	}
 
