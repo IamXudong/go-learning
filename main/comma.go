@@ -25,17 +25,14 @@ func commaA(s string) string {
 // 非递归方式向字符串中插入3位分隔逗号
 func commaB(s string) string {
 	var buf bytes.Buffer
-	var dot string
 	n := len(s) % 3
-
-	if n > 0 {
-		buf.WriteString(s[:n])
-		dot = ","
-	}
+	buf.WriteString(s[:n])
 
 	for n <= len(s)-3 {
-		buf.WriteString(dot + s[n:n+3])
-		dot = ","
+		if n > 0 {
+			buf.WriteByte(',')
+		}
+		buf.WriteString(s[n:n+3])
 		n += 3
 	}
 	return buf.String()
