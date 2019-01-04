@@ -4,22 +4,23 @@ package main
 import "fmt"
 
 func main() {
-	s := []string{"one", "two", "two", "three", "four", "five", "five", "six"}
-	fmt.Println(s)
-	s = norepeat(s)
-	fmt.Println(s)
+	s1 := []string{}
+	s2 := []string{"one"}
+	s3 := []string{"one", "two", "two", "three", "four", "five", "five", "six"}
+	fmt.Println(s1, s2, s3)
+	s1 = norepeat(s1)
+	s2 = norepeat(s2)
+	s3 = norepeat(s3)
+	fmt.Println(s1, s2, s3)
 }
 
 func norepeat(s []string) []string {
-	if len(s) < 1 {
-		return s
-	}
 	n := 0
-	for i := 1; i < len(s); i++ {
-		if s[i] != s[n] {
-			n++
+	for i := 0; i < len(s); i++ {
+		if i == 0 || s[i] != s[n-1] {
 			s[n] = s[i]
+			n++
 		}
 	}
-	return s[:n+1]
+	return s[:n]
 }
