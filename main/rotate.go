@@ -1,4 +1,4 @@
-// 一次遍就地历旋转slice元素
+// 一次遍历就地旋转slice元素
 package main
 
 import (
@@ -26,13 +26,16 @@ func main() {
 }
 
 // 不使用递归
-func rotate1(s []int, n int) {
-	var step int
-	step = n % len(s) // 转化无效旋转
+func rotate1(s []int, step int) {
+	if len(s) == 0 || step == 0 {
+		return
+	}
+
+	step %= len(s) // 转化无效旋转
 
 	// 转化右旋转为左旋转
 	if step < 0 {
-		step = len(s) + step
+		step += len(s)
 	}
 
 	stop := 0
@@ -52,14 +55,15 @@ func rotate1(s []int, n int) {
 
 // 使用递归
 func rotate2(s []int, step int) {
-	step %= len(s)
-	if step == 0 {
+	if step == 0 || len(s) == 0 {
 		return
 	}
 
+	step %= len(s)
+
 	// 转化右旋转为左旋转
 	if step < 0 {
-		step = len(s) + step
+		step += len(s)
 	}
 
 	i := 0
@@ -67,6 +71,8 @@ func rotate2(s []int, step int) {
 		s[i], s[i+step] = s[i+step], s[i]
 		i++
 	}
-	step = step - i%step
-	rotate2(s[i:], step)
+
+	if len(s)%step != 0 {
+		rotate2(s[i:], step-len(s)%step)
+	}
 }
