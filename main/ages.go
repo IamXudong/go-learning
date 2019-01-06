@@ -8,7 +8,7 @@ import (
 
 func main() {
 	ages := map[string]int{"Jim": 24, "Bob": 36, "Sam": 47, "Sarah": 21, "Alice": 19}
-	var names []string
+	var names = make([]string, 0, len(ages))
 	for name := range ages {
 		names = append(names, name)
 	}
