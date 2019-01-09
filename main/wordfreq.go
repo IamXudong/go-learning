@@ -8,8 +8,8 @@ import (
 	"unicode"
 )
 
-var words = make(map[string]int)	// 单词计数
-var puncs = make(map[string]int)	// 标点计数
+var words = make(map[string]int) // 单词计数
+var puncs = make(map[string]int) // 标点计数
 
 func main() {
 	input := bufio.NewScanner(os.Stdin)
