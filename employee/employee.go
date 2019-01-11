@@ -26,3 +26,13 @@ func EmployeeByID(id int) *Employee {
 	dilbert.Salary = 290000
 	return dilbert
 }
+
+// Bonus 以薪水的百分比计算资金
+func Bonus(e *Employee, percent int) int {
+	return e.Salary * percent / 100
+}
+
+// AwardAnnualRaise 加度加薪
+func AwardAnnualRaise(e *Employee) {
+	e.Salary = e.Salary * 105 / 100
+}

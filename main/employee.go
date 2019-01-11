@@ -3,7 +3,8 @@ package main
 
 import (
 	"fmt"
-	"go-learning/employee"
+
+	"github.com/stevzhang01/go-learning/employee"
 )
 
 func main() {
@@ -15,4 +16,7 @@ func main() {
 	*position = "Senior " + *position
 	fmt.Println(dilbert.Position)
 	fmt.Println(employee.EmployeeByID(dilbert.ID).Salary)
+	fmt.Println(employee.Bonus(&dilbert, 50))
+	employee.AwardAnnualRaise(&dilbert)
+	fmt.Println(dilbert.Salary)
 }
