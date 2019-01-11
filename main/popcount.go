@@ -3,10 +3,11 @@ package main
 
 import (
 	"fmt"
-	"go-learning/popcount"
 	"os"
 	"strconv"
 	"time"
+
+	"github.com/stevzhang01/go-learning/popcount"
 )
 
 func main() {

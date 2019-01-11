@@ -4,7 +4,8 @@ package main
 
 import (
 	"fmt"
-	"go-learning/slicecount"
+
+	"github.com/stevzhang01/go-learning/slicecount"
 )
 
 func main() {

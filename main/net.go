@@ -3,7 +3,8 @@ package main
 
 import (
 	"fmt"
-	"go-learning/net"
+
+	"github.com/stevzhang01/go-learning/net"
 )
 
 func main() {

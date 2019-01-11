@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"go-learning/tempconv"
+
+	"github.com/stevzhang01/go-learning/tempconv"
 )
 
 func main() {

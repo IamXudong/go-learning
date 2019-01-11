@@ -3,9 +3,10 @@ package main
 
 import (
 	"fmt"
-	"go-learning/tempconv"
 	"os"
 	"strconv"
+
+	"github.com/stevzhang01/go-learning/tempconv"
 )
 
 func main() {

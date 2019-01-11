@@ -3,7 +3,8 @@ package main
 
 import (
 	"fmt"
-	"go-learning/graph"
+
+	"github.com/stevzhang01/go-learning/graph"
 )
 
 func main() {

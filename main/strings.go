@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"go-learning/strings"
+
+	"github.com/stevzhang01/go-learning/strings"
 )
 
 func main() {

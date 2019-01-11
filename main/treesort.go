@@ -3,7 +3,8 @@ package main
 
 import (
 	"fmt"
-	"go-learning/treesort"
+
+	"github.com/stevzhang01/go-learning/treesort"
 )
 
 func main() {

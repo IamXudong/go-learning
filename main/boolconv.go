@@ -3,7 +3,8 @@ package main
 
 import (
 	"fmt"
-	"go-learning/boolconv"
+
+	"github.com/stevzhang01/go-learning/boolconv"
 )
 
 func main() {
