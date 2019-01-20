@@ -11,7 +11,7 @@ import (
 // SearchIssue 查询 github 上 Issue 跟踪接口
 func SearchIssues(terms []string) (*IssueSearchResult, error) {
 	q := url.QueryEscape(strings.Join(terms, " "))
-	resp, err := http.Get(IssueUrl + "?q=" + q)
+	resp, err := http.Get(IssueUrl + "?q=" + q + "&sort=created")
 	if err != nil {
 		return nil, err
 	}
