@@ -22,5 +22,5 @@ type Issue struct {
 
 type User struct {
 	Login   string
-	HTMLURL string `jsong: "html_url"`
+	HTMLURL string `json:"html_url"`
 }
