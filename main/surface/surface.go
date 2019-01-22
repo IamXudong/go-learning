@@ -31,7 +31,7 @@ func main() {
 	fmt.Println("</svg>")
 }
 
-func corner(i, j int) (float64, float64) {
+func corner(i, j int) (sx, sy float64) {
 	// 求出网格单元(i, j)的顶点坐标(x, y)
 	x := xyrange * (float64(i)/cells - 0.5)
 	y := xyrange * (float64(j)/cells - 0.5)
@@ -43,10 +43,10 @@ func corner(i, j int) (float64, float64) {
 	}
 
 	// 将(x, y, z) 等角投射到二维SVG绘图平面上, 坐标是(sx, sy)
-	sx := width/2 + (x-y)*cos30*xyscale
-	sy := height/2 + (x+y)*sin30*xyscale - z*zscale
+	sx = width/2 + (x-y)*cos30*xyscale
+	sy = height/2 + (x+y)*sin30*xyscale - z*zscale
 
-	return sx, sy
+	return
 }
 
 func f(x, y float64) (float64, bool) {
