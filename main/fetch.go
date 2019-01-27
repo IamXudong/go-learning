@@ -33,9 +33,11 @@ func fetch(url string) (string, int64, error) {
 	if err != nil {
 		return "", 0, err
 	}
+	defer func() {
+		if closeErr := f.Close(); err == nil {
+			err = closeErr
+		}
+	}()
 	n, err := io.Copy(f, resp.Body)
-	if closeErr := f.Close(); err == nil {
-		err = closeErr
-	}
 	return local, n, err
 }
