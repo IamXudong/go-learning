@@ -1,6 +1,9 @@
 package geometry
 
-import "math"
+import (
+	"image/color"
+	"math"
+)
 
 type Point struct{ X, Y float64 }
 
@@ -37,4 +40,9 @@ func PathDistance(path Path) float64 {
 func (p *Point) Scale(factor float64) {
 	p.X *= factor
 	p.Y *= factor
+}
+
+type CorloredPoint struct {
+	Point
+	Corlor color.RGBA
 }
