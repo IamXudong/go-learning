@@ -1,6 +1,8 @@
 // 二叉树实现插入排序
 package treesort
 
+import "fmt"
+
 type tree struct {
 	value       int
 	left, right *tree
@@ -39,4 +41,21 @@ func add(t *tree, value int) *tree {
 		t.right = add(t.right, value)
 	}
 	return t
+}
+
+// 展示 tree 序列值
+func (t *tree) String() string {
+	if t != nil {
+		return fmt.Sprintf("[%s%d%s]", t.left.String(), t.value, t.right.String())
+	}
+	return ""
+}
+
+// 打印 tree 序列值
+func PrintValues(values []int) {
+	var root *tree
+	for _, v := range values {
+		root = add(root, v)
+	}
+	fmt.Println(root)
 }
