@@ -5,6 +5,7 @@ import (
 	"log"
 	"net"
 	"os"
+	"fmt"
 )
 
 func main() {
@@ -12,13 +13,19 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer conn.Close()
-	go mustCopy(os.Stdout, conn)
-	mustCopy(conn, os.Stdin)
+	done := make(chan struct{})
+	go mustCopy(os.Stdout, conn, done)
+	mustCopy(conn, os.Stdin, nil)
+	<-done
+	conn.Close()
 }
 
-func mustCopy(dst io.Writer, src io.ReadWriter) {
+func mustCopy(dst io.Writer, src io.ReadWriter, ch chan struct{}) {
 	if _, err := io.Copy(dst, src); err != nil {
 		log.Fatal(err)
+	}
+	if ch != nil {
+		fmt.Println("done")
+		ch <- struct{}{}
 	}
 }
